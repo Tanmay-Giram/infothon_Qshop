@@ -43,7 +43,8 @@ const Cart = () => {
   const createCheckout = async () => {
     if (session?.user) {
       const stripe = await stripePromise;
-      const response = await fetch("http://localhost:3000/api/checkout", {
+      console.log(stripe);
+      const response = await fetch("http://localhost:3000/api/checkout/", {
         method: "POST",
         headers: { "Content-Type": "appication/json" },
         body: JSON.stringify({
