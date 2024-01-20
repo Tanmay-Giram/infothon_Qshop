@@ -1,11 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
+import firebase from "@/lib/firebase/clientApp";
+import { useCollection } from "react-firebase-hooks/firestore";
 
-const getData = (data: any) => {
-    for (let entry of data) {
-      
+const getData = async (data: any) => {
+  const db = firebase.firestore();
+
+  for (let entry of data) {
+    console.log(entry[0], entry[1]);
   }
 };
+
 export default function Profile() {
   return (
     <div>
