@@ -9,8 +9,8 @@ const initialState: StoreState = {
   productData: [],
 };
 
-export const orebiSlice = createSlice({
-  name: "orebi",
+export const qshopSlice = createSlice({
+  name: "qshop",
   initialState,
   reducers: {
     addToCart: (state, action) => {
@@ -56,5 +56,5 @@ export const {
   decreaseQuantity,
   deleteProduct,
   resetCart,
-} = orebiSlice.actions;
-export default orebiSlice.reducer;
+} = qshopSlice.actions;
+export default qshopSlice.reducer;

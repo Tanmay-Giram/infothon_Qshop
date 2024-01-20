@@ -34,7 +34,7 @@ export interface ProductProps {
 }
 
 export interface StateProps {
-  orebi: {
+  qshop: {
     productData: ProductProps[];
   };
 }

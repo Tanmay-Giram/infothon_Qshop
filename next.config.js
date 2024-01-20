@@ -7,8 +7,12 @@ const nextConfig = {
         hostname: "cdn.sanity.io",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        pathname: "**",
+      },
     ],
   },
 };
-
 module.exports = nextConfig;

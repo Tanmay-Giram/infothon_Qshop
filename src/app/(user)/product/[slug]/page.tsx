@@ -26,7 +26,7 @@ export const generateStaticParams = async () => {
   }));
 };
 
-const specialOffersQuery = groq`*[_type == 'product' && position == 'Special Offers']{
+const specialOffersQuery = groq`*[_type == 'product' && position == 'on Sale']{
     ...
    } | order(_createdAt asc)`;
 

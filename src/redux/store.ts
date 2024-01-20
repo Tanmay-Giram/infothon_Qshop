@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import orebiReducer from "./orebiSlice";
+import qshopReducer from "./qshopSlice";
 import {
   persistStore,
   persistReducer,
@@ -44,11 +44,11 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, orebiReducer);
+const persistedReducer = persistReducer(persistConfig, qshopReducer);
 
 export const store = configureStore({
   reducer: {
-    orebi: persistedReducer,
+    qshop: persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
