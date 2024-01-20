@@ -56,6 +56,7 @@ const Cart = () => {
       const data = await response.json();
       if (response.ok) {
         stripe?.redirectToCheckout({ sessionId: data.id });
+        
       }
     } else {
       toast.error("Please sign in to make Checkout");
@@ -125,6 +126,7 @@ const Cart = () => {
                   onClick={createCheckout}
                   className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300"
                 >
+                  console.log(data.id);
                   Proceed to Checkout
                 </button>
               </div>
