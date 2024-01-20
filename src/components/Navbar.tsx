@@ -36,7 +36,7 @@ const Navbar = () => {
       link: "/studio",
     },
     {
-      title: "map",
+      title: "Map",
       link: "/maps",
     }
   ];
