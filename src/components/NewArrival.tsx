@@ -51,7 +51,7 @@ const NewArrival = ({ products }: Props) => {
         <Slider {...settings}>
           {products?.map((item: ProductProps) => (
             <div key={item?._id} className="px-2">
-              <Product product={item}  bg="#ffffff"/>
+              <Product product={item} />
             </div>
           ))}
         </Slider>

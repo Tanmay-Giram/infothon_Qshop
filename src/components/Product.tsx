@@ -8,16 +8,15 @@ import { AiOutlineShopping } from "react-icons/ai";
 
 interface Props {
   product: ProductProps;
+  bg?: string;
 }
 
-const Product = ({ product,}: Props) => {
-  console.log(product);
-
+const Product = ({ product, bg }: Props) => {
   return (
     <div className="w-full relative group border-[1px] border-black hover:shadow-lg duration-200 shadow-gray-500 rounded-md overflow-hidden group">
       <div className="w-full h-80 flex items-center justify-center bg-white overflow-hidden">
-        <div className={`relative`}>
-          <Link href={"/"}>
+        <div className={`relative ${bg}`}>
+          <Link href={`/product/${product?.slug?.current}`}>
             <Image
               src={urlFor(product?.image).url()}
               alt="product image"
