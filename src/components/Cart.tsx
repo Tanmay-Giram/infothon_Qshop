@@ -29,8 +29,6 @@ const Cart = () => {
     setTotalAmt(price);
   }, [productData]);
 
-  
-
   const handleReset = () => {
     const confirmed = window.confirm("Are you sure to reset your Cart?");
     confirmed && dispatch(resetCart());
@@ -56,7 +54,6 @@ const Cart = () => {
       const data = await response.json();
       if (response.ok) {
         stripe?.redirectToCheckout({ sessionId: data.id });
-        
       }
     } else {
       toast.error("Please sign in to make Checkout");
@@ -121,12 +118,10 @@ const Cart = () => {
                 </p>
               </div>
               <div className="flex justify-end">
-                
                 <button
                   onClick={createCheckout}
                   className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300"
                 >
-                  console.log(data.id);
                   Proceed to Checkout
                 </button>
               </div>
