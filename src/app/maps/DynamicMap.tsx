@@ -1,22 +1,36 @@
 "use client";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import L, { icon } from "leaflet";
+import "leaflet-routing-machine";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import marker_img from "@/assets/MapMarker.jpg";
+
+const Palace_coordinates = [12.3052, 76.6552];
 
 export function ChangeView({ coords, zoom }) {
   const map = useMap();
   map.setView(coords, zoom);
-  return null;
-}
 
-export default function Map() {
-  const [geoData, setGeoData] = useState({ lat: 12.2958, lng: 76.6394 });
   var myIcon = L.icon({
     iconUrl: marker_img.src,
     iconSize: [40, 40],
   });
+
+  L.Marker.prototype.options.icon = myIcon;
+
+  L.Routing.control({
+    waypoints: [
+      L.latLng(coords),
+      L.latLng(Palace_coordinates[0], Palace_coordinates[1]),
+    ],
+  }).addTo(map);
+
+  return null;
+}
+
+export default function Map() {
+  const [geoData, setGeoData] = useState({ lat: 12.3366, lng: 76.6187 });
 
   return (
     <MapContainer
@@ -29,7 +43,7 @@ export default function Map() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {geoData.lat && geoData.lng && (
-        <Marker position={[geoData.lat, geoData.lng]} icon={myIcon} />
+        <Marker position={[geoData.lat, geoData.lng]} />
       )}
       <ChangeView coords={[geoData.lat, geoData.lng]} zoom={16} />
     </MapContainer>
