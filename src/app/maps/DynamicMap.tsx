@@ -1,7 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import marker_img from "@/assets/MapMarker.jpg";
 
 export function ChangeView({ coords, zoom }) {
   const map = useMap();
@@ -11,6 +13,10 @@ export function ChangeView({ coords, zoom }) {
 
 export default function Map() {
   const [geoData, setGeoData] = useState({ lat: 12.2958, lng: 76.6394 });
+  var myIcon = L.icon({
+    iconUrl: marker_img.src,
+    iconSize: [40, 40],
+  });
 
   return (
     <MapContainer
@@ -23,7 +29,7 @@ export default function Map() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {geoData.lat && geoData.lng && (
-        <Marker position={[geoData.lat, geoData.lng]} />
+        <Marker position={[geoData.lat, geoData.lng]} icon={myIcon} />
       )}
       <ChangeView coords={[geoData.lat, geoData.lng]} zoom={16} />
     </MapContainer>
