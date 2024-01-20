@@ -20,7 +20,7 @@ const newArrivalQuery = groq`*[_type == 'product' && position == 'New Arrivals']
 const bestSellersQuery = groq`*[_type == 'product' && position == 'on Sale']{
   ...
  } | order(_createdAt asc)`;
-const specialOffersQuery = groq`*[_type == 'product' && position == 'Special Offers']{
+const specialOffersQuery = groq`*[_type == 'product' && position == 'Bestsellers']{
   ...
  } | order(_createdAt asc)`;
 

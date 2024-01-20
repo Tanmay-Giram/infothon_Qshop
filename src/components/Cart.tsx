@@ -29,6 +29,8 @@ const Cart = () => {
     setTotalAmt(price);
   }, [productData]);
 
+  
+
   const handleReset = () => {
     const confirmed = window.confirm("Are you sure to reset your Cart?");
     confirmed && dispatch(resetCart());
@@ -118,6 +120,7 @@ const Cart = () => {
                 </p>
               </div>
               <div className="flex justify-end">
+                
                 <button
                   onClick={createCheckout}
                   className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300"
@@ -162,5 +165,4 @@ const Cart = () => {
     </Container>
   );
 };
-
 export default Cart;
