@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import BestSellers from "@/components/BestSellers";
 import HomeBanner from "@/components/HomeBanner";
+import Onsale from "@/components/Onsale";
 import NewArrival from "@/components/NewArrival";
 import YearProduct from "@/components/YearProduct";
 import { client } from "@/lib/sanityClient";
@@ -16,7 +17,7 @@ const newArrivalQuery = groq`*[_type == 'product' && position == 'New Arrivals']
 ...
 } | order(_createdAt asc)`;
 
-const bestSellersQuery = groq`*[_type == 'product' && position == 'Bestsellers']{
+const bestSellersQuery = groq`*[_type == 'product' && position == 'on Sale']{
   ...
  } | order(_createdAt asc)`;
 const specialOffersQuery = groq`*[_type == 'product' && position == 'Special Offers']{
