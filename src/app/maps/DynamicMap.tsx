@@ -18,7 +18,7 @@ export function ChangeView({ coords, zoom }) {
   });
 
   var geolocation = require("geolocation");
-  //TODO : Linking to the coords
+  //TODO : Linking to the coords for dynamic view
   geolocation.getCurrentPosition(function (err, position) {
     if (err) throw err;
     console.log(position);
