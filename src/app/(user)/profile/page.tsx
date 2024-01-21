@@ -1,10 +1,50 @@
 "use client";
 import { useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+} from "firebase/firestore";
+import { m } from "framer-motion";
 
-const getData = (data: any) => {
+const firebaseConfig = {
+  apiKey: "AIzaSyBkw33UFrhlAqz7jCQmkp4WA7BR-5KPtOc",
+  authDomain: "infothon-2.firebaseapp.com",
+  projectId: "infothon-2",
+  storageBucket: "infothon-2.appspot.com",
+  messagingSenderId: "140269448929",
+  appId: "1:140269448929:web:887771b1cb160dc30451a0",
+  measurementId: "G-J66066Z0R0",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const getData = async (data: any) => {
+  var db = getFirestore(app);
+  var name = "",
+    email = "",
+    address = "";
+
   for (let entry of data) {
-    // Process data here
-    console.log(entry)
+    console.log(entry[0], entry[1]);
+    if (entry[0] == "name") {
+      name = entry[1];
+    }
+    if (entry[0] == "email") email = entry[1];
+    if (entry[0] == "Shipping Address") address = entry[1];
+  }
+  try {
+    await setDoc(doc(db, "users", email), {
+      name: name,
+      email: email,
+      "Shipping Address": address,
+    });
+  } catch (e) {
+    console.error("Error adding document: ", e);
   }
 };
 
