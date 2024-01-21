@@ -20,7 +20,7 @@ const SucessPage = ({ searchParams }: any) => {
         </h2>
         <p>Now you can view your orders or continue Shopping with us</p>
         <div className="flex items-center gap-x-5">
-          <Link href={"/order"}>
+          <Link href={"/order.ts"}>
             <button className="bg-black text-slate-100 w-44 h-12 rounded-full text-base font-semibold hover:bg-primeColor duration-300">
               View Orders
             </button>
