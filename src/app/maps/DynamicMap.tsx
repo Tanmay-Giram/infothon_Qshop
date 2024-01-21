@@ -17,6 +17,13 @@ export function ChangeView({ coords, zoom }) {
     iconSize: [40, 40],
   });
 
+  var geolocation = require("geolocation");
+  //TODO : Linking to the coords
+  geolocation.getCurrentPosition(function (err, position) {
+    if (err) throw err;
+    console.log(position);
+  });
+
   L.Marker.prototype.options.icon = myIcon;
 
   L.Routing.control({
